@@ -30,3 +30,10 @@ jobs:
       with:
         name: test-and-code-coverage-report
         path: test-results.txt
+    - name: Deploy to staging application in Heroku
+      uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+      with:
+        heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+        heroku_app_name: "qaa-secure-api-staging" #Must be unique in Heroku
+        heroku_email: "daniel.ives@gmail.com"
+        usedocker: true
